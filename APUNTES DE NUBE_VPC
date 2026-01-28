@@ -1,0 +1,8 @@
+Tabla de Enrutamiento la privada cambia a publica despues pasa por la Puerta de Enlace red(salida) para ir a internet puerta den enlace cliente(entrada) para llegar a casa  
+
+servivio de datos--> S3
+
+
+puedes tener varios VPC en la AWS-->no hay transitivo (la red no se comparte cuando esta activo )
+
+
