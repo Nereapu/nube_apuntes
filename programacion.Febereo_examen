@@ -43,3 +43,17 @@ public class P1 {
 	}
 
 }
+______clase________character_______
+charater esta en lang no hay que importar
+es como la clase doule ,boolean, intiger
+boolean valida=Character.isDigit(); ---> para saber si es un caracter 
+lo mismo que --
+char c = numeros.charAt(i);
+                if (c < '0' || c > '9') 
+                {
+                     valido = false;
+                } 
+
+ ______
+character son 16 bits 
+para saber cuantos caracteres se puede es 2 elevado a 16
