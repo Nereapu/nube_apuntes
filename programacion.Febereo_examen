@@ -17,7 +17,7 @@ recibir el string nombre completo
 tokens para separar nombre apellido
 charecter - char es con string 
 busca:api string tokenizer
-________
+_____ejercicio API___
 nombre y apellido ---> n.a.
 import java.util.StringTokenizer;
 public String inicales(String nombre){
