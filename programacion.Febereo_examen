@@ -58,3 +58,42 @@ char c = numeros.charAt(i);
 character son 16 bits 
 para saber cuantos caracteres se puede es 2 elevado a 16
 relaciones entre clase no entra
+
+______________Static_______
+static afecta a todos los objetos de una clase 
+no se mueve y pertenece a todos
+----ejemplo------
+public class Pato
+{
+		//feha de migracion
+		private static LocalDate fecha=
+//lamar
+public static LocalDate getFechaMigracion(){
+retrun Pato.Fecha
+}
+----clase--main
+System.out.println(Pato.getFechaMigracion());
+
+_______opciones de ______
+que afecta a toda la clase y no se puede cambiar es con:
+static final
+-------------------------
+que no se puede cambiar 
+	ej.cuantas patas tiene un pato
+	private final int NUMPATAS=2;
+
+______CLASE MATH_____________
+no hay que importar
+//potencias 
+
+Math.pow(numero, lo que eleva);
+_____________________
+si se hace 2 import con todo *
+import java.util.*;
+import java.util.*;
+y no sabemos queescanner utilkizar se hace
+utilidades.juegos.Scanner sc=new utilidades.juego.Scanner(System.in);
+
+--------------
+import paquete de algo ya hecho
+packege estas codificando la clase propia 
