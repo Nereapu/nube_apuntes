@@ -1,0 +1,9 @@
+aws s3 base de datos
+recolecta info ,guarda 
+ __________
+saber si lo tiene los mismo
+equals--metodo de la clase String
+String equipo="Ferrari";
+String nano= "Lamborghini";
+boolean coinciden=equipo.equals(nano);
+if(equipo.equals("Ferrari") --->se hace 
