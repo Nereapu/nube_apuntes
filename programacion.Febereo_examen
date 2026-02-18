@@ -7,3 +7,31 @@ String equipo="Ferrari";
 String nano= "Lamborghini";
 boolean coinciden=equipo.equals(nano);
 if(equipo.equals("Ferrari") --->se hace 
+importante en random
+nextDoble --aleatorio tipo daouble
+nextInt
+LocalDate f=LocalDate.of(_,_,_)
+_______
+tokenizer siver para hacer trozos al string
+recibir el string nombre completo 
+tokens para separar nombre apellido
+charecter - char es con string 
+busca:api string tokenizer
+________
+nombre y apellido ---> n.a.
+import java.util.StringTokenizer;
+public String inicales(String nombre){
+
+  //usar string limitador
+  String iniciales=null;
+
+  StringTokenizzer st=new StringTokenizer(nombre, " ");
+
+  while(st.hasMoreTokens()){
+     // tiene el nombre 
+     String palabra=st.nextTokens();
+       iniciales+=palabras.charAt(0); 
+   //iniciales esta la K
+    iniciales=iniciales + ".";
+//iniciales+=st.nextToken().charAt(0)+".";
+}
