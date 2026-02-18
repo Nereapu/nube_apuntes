@@ -1,4 +1,4 @@
-aws s3 base de datos
+/*aws s3 base de datos
 recolecta info ,guarda 
  __________
 saber si lo tiene los mismo
@@ -19,6 +19,7 @@ charecter - char es con string
 busca:api string tokenizer
 _____ejercicio API___
 nombre y apellido ---> n.a.
+*/
 import java.util.StringTokenizer;
 public String inicales(String nombre){
 
@@ -33,5 +34,6 @@ public String inicales(String nombre){
        iniciales+=palabras.charAt(0); 
    //iniciales esta la K
     iniciales=iniciales + ".";
+//MAS RAPIDO EN UNA SOLA LINEA
 //iniciales+=st.nextToken().charAt(0)+".";
 }
