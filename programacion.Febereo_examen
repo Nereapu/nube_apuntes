@@ -19,21 +19,27 @@ charecter - char es con string
 busca:api string tokenizer
 _____ejercicio API___
 nombre y apellido ---> n.a.
-*/
 import java.util.StringTokenizer;
-public String inicales(String nombre){
 
-  //usar string limitador
-  String iniciales=null;
+public class P1 {
+	
+	public String iniciales(String nombre){
 
-  StringTokenizzer st=new StringTokenizer(nombre, " ");
+	  //usar string limitador
+	  String iniciales=null;
 
-  while(st.hasMoreTokens()){
-     // tiene el nombre 
-     String palabra=st.nextTokens();
-       iniciales+=palabras.charAt(0); 
-   //iniciales esta la K
-    iniciales=iniciales + ".";
-//MAS RAPIDO EN UNA SOLA LINEA
-//iniciales+=st.nextToken().charAt(0)+".";
+	  StringTokenizer st=new StringTokenizer(nombre, " ");
+
+	  while(st.hasMoreTokens()){
+	     // tiene el nombre 
+	     String palabra=st.nextToken();
+	       iniciales+=palabra.charAt(0); 
+	   //iniciales esta la K
+	    iniciales=iniciales + ".";
+	    //MAS RAPIDO EN UNA SOLA LINEA
+	    //iniciales+=st.nextToken().charAt(0)+".";
+	  }
+	  return iniciales;
+	}
+
 }
