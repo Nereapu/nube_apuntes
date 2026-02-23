@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--de xml a xsd viincular: 
+    targetNamesspace-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://tierno.es/recetario"
+    elementFormDefault="qualified"
+    xmlns:re="http://tierno.es/recetario">
+	<!--Elemento raíz: recetario-->
+    <xs:element name="recetario">
+        <xs:complexType>
+            <xs:sequence>
+				<!--elementos con subelementos-->
+                <xs:element name="receta">
+                    <xs:complexType>
+						
+                        <xs:sequence><!--todos los elementos en el mismo orden-->
+							
+							<!--<nombre>Tortilla de patatas</nombre>-->
+                            <xs:element name="nombre" type="xs:string" />
+                            <xs:element name="tiempo" type="re:Tiempo" />
+                            <xs:element name="dificultad" type="re:Dificultad" />
+                            <xs:element name="ingredientes" type="re:Ingredientes" />
+							
+                            <xs:element name="pasos">
+                                <xs:complexType>
+									<!--minOccurs minimo 0=opcional-->
+                                    <xs:sequence minOccurs="0" maxOccurs="20">
+                                        <xs:element name="paso" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+							
+							<!--Que se pone abajo-->
+                            <xs:element name="alergenos" type="re:Alergenos" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+	<!--Restricciones-->
+	<!-- Restricción de rango numérico -->
+    <xs:simpleType name="Tiempo">
+		<!--Tiempo en minutos (entero 1-240)-->
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="240" />
+        </xs:restriction>
+    </xs:simpleType>
+
+	<!-- Restricción de enumeración -->
+	<xs:simpleType name="Dificultad">
+		<!--Dificultad (fácil, media, difícil)-->
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="facil" />
+            <xs:enumeration value="medio" />
+            <xs:enumeration value="dificil" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="Ingredientes">
+		<!--De 2 a 10 ingredientes (cada ingrediente: texto, cantidad opcional)-->
+		<!--maximo inlimitado  maxOccurs="unboundedn-->
+        <xs:sequence minOccurs="2" maxOccurs="unbounded">
+			<!--elementos con atributos-->
+            <xs:element name="ingrediente">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+							<!-- Aquí van el atributo -->
+                            <xs:attribute name="cantidad" type="xs:positiveInteger" use="optional" />
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+	
+	
+	<!-- <alergenos>
+            <alergeno>
+                <gravedad servicios-medicos="true">Media</gravedad>
+                <nombre lang="es">Huevo</nombre>
+            </alergeno>
+        </alergenos>-->
+
+    <xs:complexType name="Alergenos">
+        <xs:sequence>
+            <xs:element name="alergeno">
+                <xs:complexType>
+                    <xs:all> <!--todos aparecen pero No ordenado-->
+						
+						<!--1.  <nombre lang="es">Huevo</nombre>-->
+                        <xs:element name="nombre">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+										<!-- Aquí van los atributos
+										     lang="es" -->
+										<!--type="re:Lang = abajo se pone -->
+										<xs:attribute name="lang" type="re:Lang">
+                                        </xs:attribute>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+						
+						<!--2.  <gravedad servicios-medicos="true">Media</gravedad>-->
+                        <xs:element name="gravedad">
+                            <xs:complexType>
+                                <xs:simpleContent>
+                                    <xs:extension base="xs:string">
+									<!-- El atributo servicios médicos es obligatorio, puede ser true/false.-->
+                                        <xs:attribute name="servicios-medicos" type="xs:boolean"></xs:attribute>
+                                    </xs:extension>
+                                </xs:simpleContent>
+                            </xs:complexType>
+                        </xs:element>
+						
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+	<!-- nombre: puede tener el atributo lang, que puede ser es/en/fr/ar-->
+    <xs:simpleType name="Lang">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="es" />
+            <xs:enumeration value="fr" />
+            <xs:enumeration value="en" />
+            <xs:enumeration value="ar" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
